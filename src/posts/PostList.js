@@ -3,8 +3,9 @@ import PostData from "../data/post.json";
 import PostDetail from './PostDetail';
 
 class PostList extends Component {
-	handleDataCallback(txtMsg) {
-		alert(txtMsg);
+	handleDataCallback(postItem) {
+		// alert(txtMsg);
+		console.log(postItem);
 	}
 
 	render() {
