@@ -8,7 +8,7 @@ class ConstLetVar extends React.Component {
 		// someVar = "Test test";
 		// const someVar = "Hello";
 		let someVar = "Hello bro...";
-		if(someVar === "Hello bro...") {
+		if (someVar === "Hello bro...") {
 			someVar = "Changed";
 		}
 
