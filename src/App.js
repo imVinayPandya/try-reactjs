@@ -4,14 +4,14 @@ import './App.css';
 import PostList from './posts/PostList';
 
 class App extends Component {
-	render() {
-		return (
-			<div className="App">
-				<PostList />
-				{/* <ConstLetVar /> */}
-			</div>
-		);
-	}
+  render () {
+    return (
+      <div className='App'>
+        <PostList />
+        {/* <ConstLetVar /> */}
+      </div>
+    );
+  }
 }
 
 export default App;

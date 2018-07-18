@@ -1,28 +1,35 @@
 import React, { Component } from 'react';
-import PostData from "../data/post.json";
+import PostData from '../data/post.json';
 import PostDetail from './PostDetail';
 
 class PostList extends Component {
-	handleDataCallback(postItem) {
-		// alert(txtMsg);
-		console.log(postItem);
-	}
+  constructor () {
+    super();
+    this.handleDataCallback = this.handleDataCallback.bind(this);
+  }
 
-	render() {
-		return (
-			<div>
-				<h1>hello there!</h1>
+  handleDataCallback (postItem) {
+    // alert(txtMsg);
+    console.log(postItem);
+  }
 
-				{PostData.map((post, index) => {
-					return <PostDetail
-						post={post}
-						key={`post-list-key ${index}`}
-						dataCallback={this.handleDataCallback.bind(this)}
-					/>;
-				})}
-			</div>
-		);
-	}
+  render () {
+    return (
+      <div>
+        <h1>
+          hello there!
+        </h1>
+
+        {PostData.map((post, index) => {
+          return <PostDetail
+            post={post}
+            key={`post-list-key ${index}`}
+            dataCallback={this.handleDataCallback}
+          />;
+        })}
+      </div>
+    );
+  }
 }
 
 export default PostList;
