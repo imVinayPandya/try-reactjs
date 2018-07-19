@@ -6,8 +6,17 @@ import YouTube from 'react-youtube';
 // https://www.youtube.com/watch?v=-_pgcFQ0l64&index=1&list=PLEsfXFp6DpzQbwYDx1zgcKJ4tzyWFaESK
 class ReactYoutubeExample extends Component {
 
+  constructor() {
+    super();
+
+    this.videoOnReady = this.videoOnReady.bind(this);
+    this.state = {
+      playerObj: null
+    };
+  }
+
   componentWillUnmount() {
-    const {playerObj} = this.state;
+    const { playerObj } = this.state;
     console.log(playerObj.getCurrentTime());
   }
 
