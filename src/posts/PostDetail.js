@@ -14,12 +14,21 @@ class PostDetail extends Component {
     };
   }
 
-  componentDidMount() {
+  setPostStateOnProps() {
     const { post } = this.props;
-
     this.setState({
       postItem: post
     });
+  }
+
+  componentDidUpdate(prevProp, prevState, snapShop) {
+    if (this.props !== prevProp) {
+      this.setPostStateOnProps();
+    }
+  }
+
+  componentDidMount() {
+    this.setPostStateOnProps();
   }
 
   handleRemoveContentButton(event) {
@@ -63,8 +72,8 @@ class PostDetail extends Component {
           ? <div>
             <h1 onClick={this.titleWasClicked}>{postItem.title}</h1>
             {showContent === true ? <p>{postItem.content}</p> : ''}
-            <button onClick={this.toogleContent}>Toogle Content Display</button>
-            <button onClick={this.handleRemoveContentButton}>Remove</button>
+            <button onClick={this.toogleContent}>Toogle Content Display</button>&nbsp;&nbsp;
+            <button onClick={this.handleRemoveContentButton}>Remove Content</button>
           </div>
           : ''}
       </div>
