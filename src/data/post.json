@@ -3,12 +3,14 @@
     "id": 1,
     "title": "Node.js in production",
     "content": "An interrupted pupil studies with a jazz. The toe tear pockets the echo. A mask adds the miraculous actor. The reign smiles!",
-    "slug": "node-js-in-production"
+    "slug": "node-js-in-production",
+    "date": "24-08-2018"
   },
   {
     "id": 2,
     "title": "ForceJs: Salesforce for javascript developer",
     "content": "A narrative suspects in the prose! The pedal stops above the fascist dust. The derivative grows! The economical recruit coordinates a poke. The nurse emerges with a disgust!",
-    "slug": "force-js-for-js-developer"
+    "slug": "force-js-for-js-developer",
+    "date": "22-08-2018"
   }
 ]
