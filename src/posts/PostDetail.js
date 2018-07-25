@@ -5,7 +5,7 @@ class PostDetail extends Component {
     super(props);
 
     this.toogleContent = this.toogleContent.bind(this);
-    this.titleWasClicked = this.titleWasClicked.bind(this);
+    // this.titleWasClicked = this.titleWasClicked.bind(this);
     this.handleRemoveContentButton = this.handleRemoveContentButton.bind(this);
 
     this.state = {
@@ -38,7 +38,7 @@ class PostDetail extends Component {
     }
   }
 
-  titleWasClicked(event) {
+  titleWasClicked = (event) => {
     event.preventDefault();
 
     let newPostItem = this.props.post;
