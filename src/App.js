@@ -5,7 +5,8 @@ import './App.css';
 // import NotFound from './routingComponents/NotFound';
 // import DynamicRouteComponent from './routingComponents/DynamicRouteComponent';
 // import PostSorting from './posts/PostSorting';
-import LifeCycle from './learn/LifeCycle';
+// import LifeCycle from './learn/LifeCycle';
+import Timer from './learn/Timer';
 // import ConstLetVar from './learn/ConstLetVar';
 // import PostList from './posts/PostList';
 
@@ -52,7 +53,8 @@ class App extends Component {
         {/* <ReactYoutubeExample videoId="-_pgcFQ0l64" /> */}
         {/* <ReactMarkdownExample input={input} /> */}
         {/* <PostSorting /> */}
-        <LifeCycle />
+        {/* <LifeCycle /> */}
+        <Timer startCount='1000'/>
       </div>
     );
   }
