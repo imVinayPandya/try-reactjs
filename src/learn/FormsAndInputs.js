@@ -6,11 +6,14 @@ class FormsAndInputs extends Component {
     this.state = {
       fullName: ''
     };
+    this.inputFullNameRef = React.createRef();
+
   }
 
   handleSubmit = (event) => {
     event.preventDefault();
     const data = this.state;
+    // console.log(this.inputFullNameRef.current.value);
     console.log(data);
   }
 
@@ -24,6 +27,18 @@ class FormsAndInputs extends Component {
     });
   }
 
+  handleFocusClick = () => {
+    this.inputFullNameRef.current.focus();
+  }
+
+  handleClearClick = () => {
+    // this.inputFullNameRef.current.value = '';
+    this.setState({
+      fullName: ''
+    });
+  }
+
+
   render() {
     const { fullName } = this.state;
 
@@ -32,18 +47,18 @@ class FormsAndInputs extends Component {
         <h1>Forms and Inputs</h1>
         <p>Full name is: {fullName}</p>
         <form onSubmit={this.handleSubmit}>
-          <p><input type='text' placeholder='Your name' value={fullName} name='fullName' onChange={this.handleInputChange} /></p>
+          <p><input ref={this.inputFullNameRef} type='text' placeholder='Your name' value={fullName} name='fullName' onChange={this.handleInputChange} /></p>
           <p><button>Send Message</button></p>
+          <p><button onClick={this.handleFocusClick}>Focus</button></p>
+          <p><button onClick={this.handleClearClick}>Clear</button></p>
         </form>
       </div>
     );
   }
 
-  // componentDidMount() {
-  //   this.setState({
-  //     fullName: "Pandya"
-  //   });
-  // }
+  componentDidMount() {
+    // this.inputFullNameRef.current.focus();
+  }
 }
 
 export default FormsAndInputs;
