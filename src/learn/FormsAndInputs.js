@@ -4,7 +4,8 @@ class FormsAndInputs extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      fullName: ''
+      fullName: '',
+      content: ''
     };
     this.inputFullNameRef = React.createRef();
 
@@ -27,11 +28,13 @@ class FormsAndInputs extends Component {
     });
   }
 
-  handleFocusClick = () => {
-    this.inputFullNameRef.current.focus();
+  handleFocusClick = (event) => {
+    event.preventDefault();
+    this.inputContentRef.focus();
   }
 
-  handleClearClick = () => {
+  handleClearClick = (event) => {
+    event.preventDefault();
     // this.inputFullNameRef.current.value = '';
     this.setState({
       fullName: ''
@@ -48,6 +51,15 @@ class FormsAndInputs extends Component {
         <p>Full name is: {fullName}</p>
         <form onSubmit={this.handleSubmit}>
           <p><input ref={this.inputFullNameRef} type='text' placeholder='Your name' value={fullName} name='fullName' onChange={this.handleInputChange} /></p>
+          <p>
+            <textarea
+              ref={node => this.inputContentRef = node}
+              placeholder='Your message'
+              name='content'
+              required={true}
+              onChange={this.handleInputChange}
+            />
+          </p>
           <p><button>Send Message</button></p>
           <p><button onClick={this.handleFocusClick}>Focus</button></p>
           <p><button onClick={this.handleClearClick}>Clear</button></p>
