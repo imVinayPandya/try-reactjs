@@ -1,12 +1,13 @@
 import React, { Component } from 'react';
 // import { BrowserRouter, Switch, Route, Redirect } from 'react-router-dom';
 import './App.css';
+import WelcomeHereDialog, {AlertBox} from './learn/ParentWrapper';
 // import StaticRouteComponent from './routingComponents/StaticRouteComponent';
 // import NotFound from './routingComponents/NotFound';
 // import DynamicRouteComponent from './routingComponents/DynamicRouteComponent';
 // import PostSorting from './posts/PostSorting';
 // import LifeCycle from './learn/LifeCycle';
-import Timer from './learn/Timer';
+// import Timer from './learn/Timer';
 // import ConstLetVar from './learn/ConstLetVar';
 // import PostList from './posts/PostList';
 
@@ -54,7 +55,9 @@ class App extends Component {
         {/* <ReactMarkdownExample input={input} /> */}
         {/* <PostSorting /> */}
         {/* <LifeCycle /> */}
-        <Timer startCount='1000'/>
+        {/* <Timer startCount='1000'/> */}
+        <AlertBox alerttype="success">This should works for me......</AlertBox>
+        <WelcomeHereDialog />
       </div>
     );
   }
