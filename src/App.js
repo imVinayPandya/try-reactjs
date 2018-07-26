@@ -4,7 +4,8 @@ import './App.css';
 // import StaticRouteComponent from './routingComponents/StaticRouteComponent';
 // import NotFound from './routingComponents/NotFound';
 // import DynamicRouteComponent from './routingComponents/DynamicRouteComponent';
-import PostSorting from './posts/PostSorting';
+// import PostSorting from './posts/PostSorting';
+import LifeCycle from './learn/LifeCycle';
 // import ConstLetVar from './learn/ConstLetVar';
 // import PostList from './posts/PostList';
 
@@ -50,7 +51,8 @@ class App extends Component {
         {/* <ConstLetVar /> */}
         {/* <ReactYoutubeExample videoId="-_pgcFQ0l64" /> */}
         {/* <ReactMarkdownExample input={input} /> */}
-        <PostSorting />
+        {/* <PostSorting /> */}
+        <LifeCycle />
       </div>
     );
   }
