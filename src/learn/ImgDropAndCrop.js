@@ -16,6 +16,7 @@ class ImgDropAndCrop extends Component {
   constructor(props) {
     super(props);
     this.imagePreviewCanvasRef = React.createRef();
+    this.fileSelectRef = React.createRef();
     this.state = {
       imgSrc: null,
       imgExt: null,
@@ -114,6 +115,29 @@ class ImgDropAndCrop extends Component {
         aspect: 1 / 1
       }
     });
+
+    this.fileSelectRef.current.value = null;
+  }
+
+  handleFileSelect = (event) => {
+    // console.log(event);
+    const files = event.target.files;
+    if (!!files && files.length > 0) {
+      const currentfile = files[0];
+
+      // convert image to base64 image
+      const myFileReader = new FileReader();
+      myFileReader.addEventListener("load", () => {
+        const myResult = myFileReader.result;
+        this.setState({
+          imgSrc: myResult,
+          imgExt: extractImageFileExtensionFromBase64(myResult)
+        });
+      }, false);
+
+      myFileReader.readAsDataURL(currentfile);
+    }
+
   }
 
   render() {
@@ -122,6 +146,8 @@ class ImgDropAndCrop extends Component {
     return (
       <div>
         <h1>Drop and Crop</h1>
+
+        <input ref={this.fileSelectRef} type="file" accept="image/*" multiple={false} onChange={this.handleFileSelect} />
 
         {imgSrc !== null ?
 
