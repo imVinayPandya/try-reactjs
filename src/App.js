@@ -2,7 +2,8 @@ import React, { Component } from 'react';
 // import { BrowserRouter, Switch, Route, Redirect } from 'react-router-dom';
 import './App.css';
 // import WelcomeHereDialog, { AlertBox } from './learn/ParentWrapper';
-import FormsAndInputs from './learn/FormsAndInputs';
+// import FormsAndInputs from './learn/FormsAndInputs';
+import ImgDropAndCrop from './learn/ImgDropAndCrop';
 // import StaticRouteComponent from './routingComponents/StaticRouteComponent';
 // import NotFound from './routingComponents/NotFound';
 // import DynamicRouteComponent from './routingComponents/DynamicRouteComponent';
@@ -59,7 +60,8 @@ class App extends Component {
         {/* <Timer startCount='1000'/> */}
         {/* <AlertBox alerttype="success">This should works for me......</AlertBox> */}
         {/* <WelcomeHereDialog /> */}
-        <FormsAndInputs />
+        {/* <FormsAndInputs /> */}
+        <ImgDropAndCrop />
       </div>
     );
   }
