@@ -1,18 +1,24 @@
 import React, { Component } from 'react';
 
 import Dropzone from 'react-dropzone';
+import ReactCrop from 'react-image-crop';
+import 'react-image-crop/dist/ReactCrop.css';
 
 const imageMaxSize = 10000000; // byte
 class ImgDropAndCrop extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      imgSrc: null
+      imgSrc: null,
+      crop: {
+        aspect: 1 / 1
+      }
     };
   }
+
   handleOnDrop = (files, rejectedFiles) => {
-    console.log(files);
-    console.log(rejectedFiles);
+    // console.log(files);
+    // console.log(rejectedFiles);
 
     if (!!files && files.length > 0) {
       const currentfile = files[0];
@@ -24,7 +30,7 @@ class ImgDropAndCrop extends Component {
       // convert image to base64 image
       const myFileReader = new FileReader();
       myFileReader.addEventListener("load", () => {
-        console.log(myFileReader.result);
+        // console.log(myFileReader.result);
         this.setState({
           imgSrc: myFileReader.result
         });
@@ -44,8 +50,22 @@ class ImgDropAndCrop extends Component {
     }
   }
 
+  handleOnCropChange = (crop) => {
+    // console.log(crop);
+    this.setState({ crop });
+  }
+
+  handleOnImageLoaded = (image) => {
+    console.log("loaded", image);
+  }
+
+  handleOnCropComplete = (crop, pixelCrop) => {
+    console.log("On complete", crop, pixelCrop);
+  }
+
   render() {
     const { imgSrc } = this.state;
+    const { crop } = this.state;
     return (
       <div>
         <h1>Drop and Crop</h1>
@@ -53,10 +73,16 @@ class ImgDropAndCrop extends Component {
         {imgSrc !== null ?
 
           <div>
-            {imgSrc}
-            <img src={imgSrc} alt="you have selected this pic" />
+            <ReactCrop
+              src={imgSrc}
+              crop={crop}
+              onChange={this.handleOnCropChange}
+              onComplete={this.handleOnCropComplete}
+              onImageLoaded={this.handleOnImageLoaded} />
           </div>
+
           :
+
           <Dropzone onDrop={this.handleOnDrop} accept='image/*' multiple={false} maxSize={imageMaxSize}>Drop image here or Click to upload image</Dropzone>
 
         }
